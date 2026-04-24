@@ -1,4 +1,6 @@
 name: Python CI   # Name of the workflow
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 # Trigger the workflow on any push to the main branch or pull request
 on:                             # Event that triggers the workflow
@@ -15,11 +17,11 @@ jobs:                           # Define the jobs to run in the workflow
         steps:                  # Define the steps to run in the job
             # Step 1: Check out the code from the repository
             - name: Checkout code  # Step to check out the code from the repository
-              uses: actions/checkout@v2  # Use the checkout action to get the code
+              uses: actions/checkout@v3  # Use the checkout action to get the code
 
             # Step 2: Set up Python environment
             - name: Set up Python  # Step to set up the Python environment
-              uses: actions/setup-python@v2  # Use the setup-python action to set up Python
+              uses: actions/setup-python@v4  # Use the setup-python action to set up Python
               with:
                 python-version: '3.8'   # Specify the Python version to use
 
